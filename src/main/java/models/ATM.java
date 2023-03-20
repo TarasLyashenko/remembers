@@ -13,24 +13,35 @@ public class ATM
 
     public void removeCash()
     {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите какую сумму хотите снять, на вашем счету -  ");
-        checkBalance();
-        int takeOff = scanner.nextInt();
-        currentAmount -= takeOff;
-        System.out.println("\n Сумма успешно снята, баланс - ");
-        checkBalance();
+        if (currentAmount != 0)
+        {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите какую сумму хотите снять, на вашем счету -  ");
+            checkBalance();
+            int takeOff = scanner.nextInt();
+            currentAmount -= takeOff;
+            System.out.println("\n Сумма успешно снята, баланс - ");
+            checkBalance();
+        }
+        else
+        {
+            System.out.println("На вашем счету недостаточно средств");
+        }
     }
 
     public void putCash()
     {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите какую сумму хотите внести, на вашем счету -  ");
-        checkBalance();
-        int throwCash = scanner.nextInt();
-        currentAmount += throwCash;
-        System.out.println("\n Сумма успешно пополнена, баланс - ");
-        checkBalance();
+        if (currentAmount != 0)
+        {
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Введите какую сумму хотите внести, на вашем счету -  ");
+            checkBalance();
+            int throwCash = scanner.nextInt();
+            currentAmount += throwCash;
+            System.out.println("\n Сумма успешно пополнена, баланс - ");
+            checkBalance();
+        }
+
     }
 
     public int getCurrentAmount()

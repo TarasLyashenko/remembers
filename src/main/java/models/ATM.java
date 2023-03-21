@@ -8,7 +8,15 @@ public class ATM
 
     public void checkBalance()
     {
-        System.out.println(currentAmount);
+        if (currentAmount != 0)
+        {
+            System.out.println(currentAmount);
+        }
+        else
+        {
+            System.out.println("Недостаточно средств");
+        }
+
     }
 
     public void removeCash()
@@ -18,10 +26,19 @@ public class ATM
             Scanner scanner = new Scanner(System.in);
             System.out.println("Введите какую сумму хотите снять, на вашем счету -  ");
             checkBalance();
-            int takeOff = scanner.nextInt();
-            currentAmount -= takeOff;
-            System.out.println("\n Сумма успешно снята, баланс - ");
-            checkBalance();
+            int amountMoney = scanner.nextInt();
+            if (amountMoney > currentAmount)
+            {
+                System.out.println("Недостаточно средств для снятия, ошибка\n");
+                return;
+            }
+            else
+            {
+                currentAmount -= amountMoney;
+                System.out.println("\n Сумма успешно снята \nВаш баланс - ");
+                checkBalance();
+            }
+
         }
         else
         {

@@ -19,7 +19,8 @@ public class Main
                     "3 - Начать запись, пока - кодовое слово для остановки записи\n" +
                     "4 - Показать все записи\n" +
                     "5 - Создать новый картридж\n" +
-                    "6 - Вынуть картридж ");
+                    "6 - Вынуть картридж\n" +
+                    "7 - Распечатать картридж на лист ");
             String userText = scanner.nextLine();
 
 
@@ -51,6 +52,10 @@ public class Main
             else if (userText.contains("6"))
             {
                 Cartridge cartridge = dictaphone.putCartridge();
+            }
+            else if (userText.contains("7"))
+            {
+                dictaphone.printCassette();
             }
         }
     }

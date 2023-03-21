@@ -1,5 +1,7 @@
 package models.dictophone;
 
+import models.Paper;
+
 import java.util.Scanner;
 
 public class Dictaphone
@@ -7,6 +9,29 @@ public class Dictaphone
     private final Scanner scanner = new Scanner(System.in);
     private Cartridge cartridge;
     private boolean power;
+    Paper paper = new Paper();
+
+    public void printCassette()
+
+    {
+
+        paper.setTitle(cartridge.getTittle());
+        String delimiter = " ";
+
+        StringBuilder stringBuilder = new StringBuilder();
+
+        int i = 0;
+        while (i < cartridge.getRecords().size() - 1)
+        {
+            stringBuilder.append(cartridge.getRecords().get(i));
+            stringBuilder.append(delimiter);
+            i++;
+        }
+        stringBuilder.append(cartridge.getRecords().get(i));
+
+        String res = stringBuilder.toString();
+        System.out.println(res);
+    }
 
     public void insertCartridge(Cartridge newCartridge)
     {

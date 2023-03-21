@@ -1,4 +1,4 @@
-import models.ATM;
+import models.dictophone.Dictaphone;
 
 import java.util.Scanner;
 
@@ -8,36 +8,36 @@ public class Main
     public static void main(String[] args)
     {
         Scanner scanner = new Scanner(System.in);
-        ATM atm = new ATM();
+        Dictaphone dictaphone = new Dictaphone();
+
+
         while (true)
         {
-
-            System.out.println("Добро пожаловать в лучший банкомат \n" +
-                    " Запросы: \n" +
-                    "1 - Проверить баланс \n" +
-                    "2 - Снять со счета \n" +
-                    "3 - Пополнить счет \n" +
-                    "4 - Выход");
+            System.out.println("1 - Включить диктофон\n" +
+                    "2 - Выключить диктофон\n" +
+                    "3 - Начать запись, пока - кодовое слово для остановки записи\n" +
+                    "4 - Показать все записи ");
             String userText = scanner.nextLine();
 
-            if (userText.equals("4"))
+
+            if (userText.contains("1"))
             {
-                break;
+                dictaphone.powerOn();
             }
-            else if (userText.equals("1"))
+            else if (userText.contains("2"))
             {
-                atm.checkBalance();
+                dictaphone.powerOff();
             }
-            else if (userText.equals("2"))
+            else if (userText.contains("3"))
             {
-                atm.removeCash();
+                dictaphone.startRecording();
             }
-            else if (userText.equals("3"))
+            else if (userText.contains("4"))
             {
-                atm.putCash();
+                dictaphone.showRecord();
             }
         }
-
-
     }
 }
+
+

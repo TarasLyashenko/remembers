@@ -30,7 +30,6 @@ public class ATM
             if (amountMoney > currentAmount)
             {
                 System.out.println("Недостаточно средств для снятия, ошибка\n");
-                return;
             }
             else
             {

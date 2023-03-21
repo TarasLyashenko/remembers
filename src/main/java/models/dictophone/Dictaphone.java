@@ -1,13 +1,14 @@
 package models.dictophone;
 
-;
 import java.util.Scanner;
+
+;
 
 public class Dictaphone
 {
-    Cartridge cartridge = new Cartridge();
+    private final Scanner scanner = new Scanner(System.in);
+    private Cartridge cartridge = new Cartridge();
     private boolean power;
-    Scanner scanner = new Scanner(System.in);
 
     public void powerOn()
     {

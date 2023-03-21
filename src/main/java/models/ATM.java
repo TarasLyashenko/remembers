@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ATM
 {
-    private int currentAmount;
+    private int currentAmount = 10;
 
     public void checkBalance()
     {

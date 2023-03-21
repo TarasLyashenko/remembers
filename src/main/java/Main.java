@@ -1,3 +1,4 @@
+import models.Paper;
 import models.dictophone.Cartridge;
 import models.dictophone.Dictaphone;
 
@@ -20,7 +21,7 @@ public class Main
                     "4 - Показать все записи\n" +
                     "5 - Создать новый картридж\n" +
                     "6 - Вынуть картридж\n" +
-                    "7 - Распечатать картридж на лист ");
+                    "7 - Распечатать картридж на лист\n");
             String userText = scanner.nextLine();
 
 
@@ -51,11 +52,12 @@ public class Main
             }
             else if (userText.contains("6"))
             {
-                Cartridge cartridge = dictaphone.putCartridge();
+                Cartridge cartridge = dictaphone.takeOutCartridge();
             }
             else if (userText.contains("7"))
             {
-                dictaphone.printCassette();
+                Paper paper = dictaphone.printCassette();
+                paper.readPaper();
             }
         }
     }

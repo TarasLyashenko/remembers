@@ -9,28 +9,25 @@ public class Dictaphone
     private final Scanner scanner = new Scanner(System.in);
     private Cartridge cartridge;
     private boolean power;
-    Paper paper = new Paper();
 
-    public void printCassette()
-
+    public Paper printCassette()
     {
-
+        Paper paper = new Paper();
         paper.setTitle(cartridge.getTittle());
-        String delimiter = " ";
+        String delimiter = System.lineSeparator();
 
         StringBuilder stringBuilder = new StringBuilder();
 
-        int i = 0;
-        while (i < cartridge.getRecords().size() - 1)
+        for (String record : cartridge.getRecords())
         {
-            stringBuilder.append(cartridge.getRecords().get(i));
+            stringBuilder.append(record);
             stringBuilder.append(delimiter);
-            i++;
         }
-        stringBuilder.append(cartridge.getRecords().get(i));
 
-        String res = stringBuilder.toString();
-        System.out.println(res);
+        String paperText = stringBuilder.toString();
+        paper.setText(paperText);
+        System.out.println("Бумага распечатана");
+        return paper;
     }
 
     public void insertCartridge(Cartridge newCartridge)
@@ -39,7 +36,7 @@ public class Dictaphone
         System.out.println("Кассета вставлена");
     }
 
-    public Cartridge putCartridge()
+    public Cartridge takeOutCartridge()
     {
         Cartridge externalCartridge = cartridge;
         cartridge = null;

@@ -2,13 +2,25 @@ package models.dictophone;
 
 import java.util.Scanner;
 
-;
-
 public class Dictaphone
 {
     private final Scanner scanner = new Scanner(System.in);
-    private Cartridge cartridge = new Cartridge();
+    private Cartridge cartridge;
     private boolean power;
+
+    public void insertCartridge(Cartridge newCartridge)
+    {
+        cartridge = newCartridge;
+        System.out.println("Кассета вставлена");
+    }
+
+    public Cartridge putCartridge()
+    {
+        Cartridge externalCartridge = cartridge;
+        cartridge = null;
+        System.out.println("Кассета извлечена");
+        return externalCartridge;
+    }
 
     public void powerOn()
     {
@@ -23,6 +35,10 @@ public class Dictaphone
         {
             System.out.println("*Щелк*...Кажется диктофон выключен.");
             return;
+        }
+        if (cartridge == null)
+        {
+            System.out.println("Внутри нет картриджа.");
         }
         while (true)
         {
@@ -63,4 +79,13 @@ public class Dictaphone
         this.power = power;
     }
 
+    public Cartridge getCartridge()
+    {
+        return cartridge;
+    }
+
+    public void setCartridge(Cartridge cartridge)
+    {
+        this.cartridge = cartridge;
+    }
 }
